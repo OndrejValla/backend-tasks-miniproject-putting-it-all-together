@@ -11,3 +11,13 @@ body {
     line-height: 2;
     color: gray;
 }
+
+.btn-small {
+    margin: 5px;
+}
+
+.collapsible-header .col strong {
+    margin: 5px;
+    padding: 5px;
+    line-height: 42px;
+}
