@@ -21,3 +21,7 @@ body {
     padding: 5px;
     line-height: 42px;
 }
+
+.modal-content {
+    text-shadow: none;
+}

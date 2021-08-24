@@ -10,10 +10,10 @@
             <div class="col s3">
                 <i class="fas fa-caret-down"></i>
                 {% if session.user|lower == task.created_by|lower %}
-                <a href="{{ url_for('delete_task', task_id=task._id) }}"
-                    class="waves-effect waves-light btn-small green accent-4">Done</a>
                 <a href="{{ url_for('edit_task', task_id=task._id) }}"
                     class="waves-effect waves-light btn-small light-blue lighten-1">Edit</a>
+                <a href="#delete-modal-{{ task._id }}"
+                    class="waves-effect waves-light btn-small green accent-4 modal-trigger">Done</a>
                 {% endif %}
             </div>
             <div class="col s9">
@@ -22,6 +22,19 @@
                 <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped" data-position="right"
                     data-tooltip="URGENT!"></i>
                 {% endif %}
+            </div>
+
+            <!-- Modal popup-->
+            <div id="delete-modal-{{ task._id }}" class="modal light-blue-text text-darken-4">
+                <div class="modal-content">
+                    <h4>Are you sure want to delete?</h4>
+                    <p>This will permanently delete this recipe</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('delete_task', task_id=task._id) }}"
+                        class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                </div>
             </div>
 
         </div>
